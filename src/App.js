@@ -1,41 +1,32 @@
-// Импортирую Реакт и хук useRef для ссылки на инпут
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 
 // Импортирую свою кнопку
 import Button from './components/Button';
 
-// Импортирую свой инпут
-import Input from './components/Input';
-
-// Подключаю стили для всего приложения
+// Подключаю стили
 import './App.css';
 
-// Делаю главный компонент приложения
+// Делаю главный компонент
 function App() {
-  
-  // Создаю рефку для инпута, чтоб потом управлять им
-  const inputRef = useRef(null);
-  
-  // Делаю функцию, которая очищает инпут
-  const handleClear = () => {
-    // Проверяю, что инпут существует
-    if (inputRef.current) {
-      // Очищаю значение в поле ввода
-      inputRef.current.value = '';
-    }
+  // Создаю счётчик кликов
+  const [clickCount, setClickCount] = useState(0);
+
+  // Функция увеличивает счётчик при клике
+  const handleButtonClick = () => {
+    setClickCount(clickCount + 1);
   };
-  
-  // Возвращаю разметку: контейнер, внутри инпут и кнопка очистки
+
+  // Возвращаю контейнер с кнопкой. Цвет фона меняется: чётное число кликов — серый, нечётное — кремовый
   return (
-    <div className="app-container">
-      {/* Инпут с рефкой и плейсхолдером */}
-      <Input ref={inputRef} placeholder="Введите текст..." />
-      
-      {/* Кнопка, по клику вызывает очистку инпута */}
-      <Button onClick={handleClear} />
+    <div
+      className="app-container"
+      style={{
+        backgroundColor: clickCount % 2 === 0 ? '#f4f4f4' : '#ffebcd',
+      }}
+    >
+      <Button onClick={handleButtonClick} />
     </div>
   );
 }
 
-// Экспортирую компонент, чтоб его можно было запустить
 export default App;

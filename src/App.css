@@ -13,6 +13,16 @@
   }
 }
 
+/* Контейнер приложения: центрирую содержимое, задаю высоту и плавность */
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;                
+  transition: background-color 0.5s ease;  
+  border-radius: 20px;          
+  margin: 20px;                 
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

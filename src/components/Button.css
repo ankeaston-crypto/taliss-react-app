@@ -1,19 +1,27 @@
-// Стилизую кнопку
 .custom-button {
-  background-color: #ff6b6b;        
-  color: #2d3436;                   
-  border: 2px solid #ff4757;        /* добавила рамку для выразительности */
-  padding: 12px 24px;               /* увеличила отступы — кнопка больше */
-  font-size: 18px;                 
-  font-weight: bold;                /* сделала жирным */
+  background-color: #9a6bff;        
+  color: white;
+  border: none;
+  padding: 12px 24px;               
+  font-size: 18px;               
   cursor: pointer;
-  border-radius: 25px;            
-  transition: 0.3s;                /* плавное изменение при наведении */
+  border-radius: 30px;              
+  transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 
-// Стилизую кнопку при наведении мыши — делаю фон темнее и чуть уменьшаю
+/* При наведении делаю фон темнее и чуть увеличиваю */
 .custom-button:hover {
-  background-color: #ff4757;        
-  color: white;                     /* текст становится белым при наведении */
-  transform: scale(0.98);           /* чуть сжимается — эффект нажатия */
+  background-color: #b7db7b;
+  transform: scale(1.02);           /* уыеличеное чуть-чуть  */
+}
+
+/*  ЗДЕСЬ КНОПКА МЕНЯЕТ СОСТОЯНИЕ ПОСЛЕ КЛИКА */
+.custom-button.clicked {
+  background-color: #0c66ab;        
+  transform: scale(0.98);           
+}
+
+/* При наведении на уже нажатую кнопку — делаю фон ещё темнее */
+.custom-button.clicked:hover {
+  background-color: #5a4ad4;
 }
